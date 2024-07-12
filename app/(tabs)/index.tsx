@@ -1,70 +1,87 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import React, { useState } from 'react';
+import { View, Button, StyleSheet,Text } from 'react-native';
+import ProblemGenerator from '../../components/ProblemGenerator';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
 
-export default function HomeScreen() {
+function App() {
+  const [input, setInput] = useState("0"); // 現在の入力値
+  const [result, setResult] = useState(0); // 計算結果
+
+  // 数字のボタンがクリックされた時の処理
+  const handleNumberClick = (value:any) => {
+    setInput((prevInput) => (prevInput === "0" ? value : prevInput + value));
+  };
+
+  const handleOperatorClick = (parameter:any) => {
+    if (input !== "0") {
+      setInput((prevInput) => prevInput + parameter);
+    }
+  };
+
+  // バックスペースのボタンがクリックされた時の処理
+  const handleBackspace = () => {
+    setInput((prevInput) => prevInput.slice(0, prevInput.length - 1));
+  };
+
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <View style={styles.mainContainer}>
+      <View>
+      <ProblemGenerator input={input} />
+        <View style={styles.formcontainer}>
+        <Text>{input}</Text>
+        </View>
+      </View>
+      <View style={styles.container}>
+        <Button title='1' onPress={() => handleNumberClick('1')} />
+        <Button title='2' onPress={() => handleNumberClick('2')} />
+        <Button title='3' onPress={() => handleNumberClick('3')} />
+      </View>
+      <View style={styles.container}>
+        <Button title='4' onPress={() => handleNumberClick('4')} />
+        <Button title='5' onPress={() => handleNumberClick('5')} />
+        <Button title='6' onPress={() => handleNumberClick('6')} />
+      </View>
+      <View style={styles.container}>
+        <Button title='7' onPress={() => handleNumberClick('7')} />
+        <Button title='8' onPress={() => handleNumberClick('8')} />
+        <Button title='9' onPress={() => handleNumberClick('9')} />
+      </View>
+      <View style={styles.container}>
+        <Button title='0' onPress={() => handleNumberClick('0')} />
+      </View>
+    </View>
   );
 }
 
+
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
+  mainContainer: {
+    flex: 1,
+    padding: 20,
+    width: "100%",
+    backgroundColor: "#FFF",
     alignItems: 'center',
-    gap: 8,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  formcontainer: {
+    height: 40,
+    top: 430,
+    width: 250,
+    borderColor: "#459554",
+    borderWidth: 2,
+    borderRadius: 15,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
+  container: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    marginVertical: 20,
+    top: 430,
+    right: 0,
     left: 0,
-    position: 'absolute',
+    width: '60%',
+    alignItems: 'center',
   },
 });
+
+export default App;
