@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, StyleSheet, Pressable, ButtonProps} from 'react-native';
+import { View } from 'react-native-reanimated/lib/typescript/Animated';
 
 export default function Button(props:ButtonProps) {
   const { onPress, title = '1' } = props;
