@@ -1,6 +1,7 @@
 // ProblemGenerator.js
 import React, { useState, useEffect } from 'react';
-import { View, Text, Button,StyleSheet} from 'react-native';
+import { View, Text, StyleSheet, Pressable, Image} from 'react-native';
+
 
 // 四則演算の関数定義
 const operations = {
@@ -39,7 +40,7 @@ const ProblemGenerator = (input) => {
 
     const checkAnswer = () => {
         if(answer == input.input){
-            setAns("○");
+            setAns("◯");
             setTimeout(() => setAns(""), 1500);
         } else {
             setAns("×");
@@ -58,19 +59,24 @@ const ProblemGenerator = (input) => {
 
     return (
         <View>
-        <View style={{justifyContent: 'center', alignItems: 'center', position: 'relative' , width: '330px' , height: '300px' , top: '70px' , border:'solid' , borderradius: '10px' , borderColor: '#459554', borderRadius: '20px'}}>
-            <Text style={{ fontSize: 60, position: 'absolute'}}>{problem}</Text>
-            <Text style={{ fontSize: 140, color: "#DE2E2E", height: "150px" , position: 'absolute'}}>{ans}</Text>
-        </View>
-        <View style={{position:'absolute', color:'#459554'}}>
-            <Button onPress={checkAnswer} style={styles.checkAnswerbutton} color='#459554'/>
-        </View>
+            <View style={{justifyContent: 'center', alignItems: 'center', position: 'relative' , width:'100%',height: '250' , top: '50%' , border:'solid' , borderColor: '#459554', borderRadius: '40px' , margintop: '20%',}}>
+                <Text style={{ fontSize: 70, position: 'absolute',fontFamily: "RobotoCondensed_700Bold",top:'20%'}}>{problem}</Text>
+                <Text style={{ fontSize: 170, color: "#DE2E2E", position: 'absolute',fontFamily: "RobotoCondensed_700Bold"}}>{ans}</Text>
+            </View>
+            <Pressable onPress={checkAnswer} style={styles.checkAnswerbutton}>
+              <Image source={require("@/assets/images/send.png")} alt="" style={{width:"80%" ,height:"80%"}} />
+          </Pressable>
         </View>
         );
     }
 const styles= StyleSheet.create({
     checkAnswerbutton:{
-    }
+    position: 'absolute',
+    top: 350, 
+    width: 70,
+    height: 70,
+    right :15,
+    }  
 })
 
 

@@ -19,12 +19,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
     borderRadius: 4,
     elevation: 3,
-    },
+  },
   text: {
-    fontSize: 25,
+    fontSize: 16,
     lineHeight: 21,
+    fontWeight: 'bold',
     letterSpacing: 0.25,
     color: 'white',
-    fontFamily:"RobotoCondensed_700Bold",
   },
 });
