@@ -59,8 +59,10 @@ const ProblemGenerator = (input) => {
 
     return (
         <View>
-            <View style={{justifyContent: 'center', alignItems: 'center', position: 'relative' , width:'100%',height: '250' , top: '50%' , border:'solid' , borderColor: '#459554', borderRadius: '40px' , margintop: '20%',}}>
-                <Text style={{ fontSize: 70, position: 'absolute',fontFamily: "RobotoCondensed_700Bold",top:'20%'}}>{problem}</Text>
+            <View style={{justifyContent: 'center', alignItems: 'center', position: 'relative' , width:'100%',height: '250' , top: '20%', margintop: '10%',}}>
+                <View style={styles.border}>
+                <Text style={{ fontSize: 70,fontFamily: "RobotoCondensed_700Bold",top:'10%' }}>{problem}</Text>
+                </View>
                 <Text style={{ fontSize: 170, color: "#DE2E2E", position: 'absolute',fontFamily: "RobotoCondensed_700Bold"}}>{ans}</Text>
             </View>
             <Pressable onPress={checkAnswer} style={styles.checkAnswerbutton}>
@@ -76,7 +78,14 @@ const styles= StyleSheet.create({
     width: 70,
     height: 70,
     right :15,
-    }  
+    },
+    border:{
+    borderWidth: 2, 
+    borderColor: '#459554', 
+    padding: 80, 
+    borderRadius: 40,
+    border:'solid'
+    }
 })
 
 

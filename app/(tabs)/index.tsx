@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   },
   formcontainer: {
     height: 50,
-    top: 420,
+    top: 442,
     width: '70%',
     paddingLeft:10,
     left:20,
@@ -108,13 +108,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     fontFamily:"RobotoCondensed_700Bold",
   },
-  numbers: {
-    fontFamily:"RobotoCondensed_700Bold",
-  },
   squarecontainer:{
     width:'100%',
     height:'80%',
-    top:420,
+    top:170,
+    padding: 20, 
     backgroundColor:'#459554',
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
