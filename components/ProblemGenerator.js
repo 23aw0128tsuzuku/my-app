@@ -59,14 +59,14 @@ const ProblemGenerator = (input) => {
 
     return (
         <View>
-            <View style={{justifyContent: 'center', alignItems: 'center', position: 'relative' , width:'100%',height: '250' , top: '20%', margintop: '10%',}}>
+            <View style={{justifyContent: 'center', alignItems: 'center', position: 'relative' , width:'100%',height: '250' , top: '5%', margintop: '10%',}}>
                 <View style={styles.border}>
                 <Text style={{ fontSize: 70,fontFamily: "RobotoCondensed_700Bold",top:'10%' }}>{problem}</Text>
                 </View>
                 <Text style={{ fontSize: 170, color: "#DE2E2E", position: 'absolute',fontFamily: "RobotoCondensed_700Bold"}}>{ans}</Text>
             </View>
             <Pressable onPress={checkAnswer} style={styles.checkAnswerbutton}>
-              <Image source={require("@/assets/images/send.png")} alt="" style={{width:"80%" ,height:"80%"}} />
+              <Image source={require("@/assets/images/send.png")} alt="" style={{width:"70%" ,height:"70%"}} />
           </Pressable>
         </View>
         );
@@ -74,15 +74,18 @@ const ProblemGenerator = (input) => {
 const styles= StyleSheet.create({
     checkAnswerbutton:{
     position: 'absolute',
-    top: 350, 
+    top: 380, 
     width: 70,
     height: 70,
-    right :15,
+    right :1,
     },
     border:{
     borderWidth: 2, 
     borderColor: '#459554', 
-    padding: 80, 
+    padding: 70, 
+    width: 350,
+    height:270,
+    margin:20,
     borderRadius: 40,
     border:'solid'
     }

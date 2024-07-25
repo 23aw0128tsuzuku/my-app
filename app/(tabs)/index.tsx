@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet,Text, Pressable, Image, } from 'react-native';
+import { View, StyleSheet,Text, Pressable, Image,TouchableOpacity } from 'react-native';
 import ProblemGenerator from '../../components/ProblemGenerator';
 import { useFonts, RobotoCondensed_700Bold } from '@expo-google-fonts/roboto-condensed';
 import Button from '@/components/button';
@@ -43,26 +43,48 @@ function App() {
           </View>
       <View style={styles.squarecontainer}>
         <View style={styles.container}>
-          <Button title='1' onPress={() => handleNumberClick('1')} color='#459554'/>
-          <Button title='2' onPress={() => handleNumberClick('2')} color='#459554'/>
-          <Button title='3' onPress={() => handleNumberClick('3')} color='#459554'/>
+          <TouchableOpacity onPress={() => handleNumberClick('1')}>
+          <Text style={styles.number}>1</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => handleNumberClick('2')}>
+          <Text style={styles.number}>2</Text>
+        </TouchableOpacity>
+        <TouchableOpacity  onPress={() => handleNumberClick('3')}>
+          <Text style={styles.number}>3</Text>
+        </TouchableOpacity>
+          </View>
+        <View style={styles.container}>
+        <TouchableOpacity onPress={() => handleNumberClick('4')}>
+          <Text style={styles.number}>4</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => handleNumberClick('5')}>
+          <Text style={styles.number}>5</Text>
+        </TouchableOpacity>
+        <TouchableOpacity  onPress={() => handleNumberClick('6')}>
+          <Text style={styles.number}>6</Text>
+        </TouchableOpacity>
         </View>
         <View style={styles.container}>
-          <Button title='4' onPress={() => handleNumberClick('4')} color='#459554'/>
-          <Button title='5' onPress={() => handleNumberClick('5')} color='#459554'/>
-          <Button title='6' onPress={() => handleNumberClick('6')} color='#459554'/>
+        <TouchableOpacity onPress={() => handleNumberClick('7')}>
+          <Text style={styles.number}>7</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => handleNumberClick('8')}>
+          <Text style={styles.number}>8</Text>
+        </TouchableOpacity>
+        <TouchableOpacity  onPress={() => handleNumberClick('9')}>
+          <Text style={styles.number}>9</Text>
+        </TouchableOpacity>
         </View>
         <View style={styles.container}>
-          <Button title='7' onPress={() => handleNumberClick('7')} color='#459554'/>
-          <Button title='8' onPress={() => handleNumberClick('8')} color='#459554'/>
-          <Button title='9' onPress={() => handleNumberClick('9')} color='#459554'/>
-        </View>
-        <View style={styles.container}>
-          <Button title=' ' onPress={() => handleNumberClick('')} color='#459554'/>
-          <Button title='0' onPress={() => handleNumberClick('0')} color='#459554'/>
-          <Pressable  onPress={handleBackspace}>
+        <TouchableOpacity onPress={() => handleNumberClick('')}>
+          <Text style={styles.number}>      </Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => handleNumberClick('0')}>
+          <Text style={styles.number}>0</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleBackspace}>
               <Image source={require("@/assets/images/backspeace.png")} alt="" />
-          </Pressable>
+        </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -71,17 +93,25 @@ function App() {
 
 
 const styles = StyleSheet.create({
+  number:{
+    fontSize:32,
+    marginVertical: 10,
+    color:'#fff',
+    fontFamily:"RobotoCondensed_700Bold",
+    paddingBottom: 20,
+
+  },
   mainContainer: {
     width: "100%",
     backgroundColor: "#FFF",
   },
   problemcontainer:{
-    width: '50%',
-    height:'9%',
+    width: '38%',
+    height:'5.5%',
     backgroundColor:'#459554',
-    top:95,
-    borderTopRightRadius: 30,
-    borderBottomRightRadius: 30,
+    top:68,
+    borderTopRightRadius: 50,
+    borderBottomRightRadius: 50,
   },
   formcontainer: {
     height: 50,
@@ -103,15 +133,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
-    marginVertical: 20,
+    // marginVertical: 20,
     top: 10,
     alignItems: 'center',
     fontFamily:"RobotoCondensed_700Bold",
   },
   squarecontainer:{
     width:'100%',
-    height:'80%',
-    top:170,
+    height:'90%',
+    top:130,
     padding: 20, 
     backgroundColor:'#459554',
     borderTopLeftRadius: 30,
